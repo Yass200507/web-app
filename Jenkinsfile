@@ -18,7 +18,7 @@ pipeline{
         stage("test docker image"){
             steps{
                 script{
-                    sh "curl http://localhost:5000"
+                    sh "curl http://localhost:5001"
                 }
             }
         }        
