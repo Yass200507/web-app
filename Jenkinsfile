@@ -11,14 +11,14 @@ pipeline{
         stage("run docker image"){
             steps{
                 script{
-                    sh "docker run -d -p 5001:5000 flask-app:lts"
+                    sh "docker run -d -p 5000:5000 flask-app:lts"
                 }
             }
         }
         stage("test docker image"){
             steps{
                 script{
-                    sh "curl http://localhost:5001"
+                    sh "curl http://localhost:5000"
                 }
             }
         }        
