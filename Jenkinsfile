@@ -11,7 +11,7 @@ pipeline{
         stage("run docker image"){
             steps{
                 script{
-                    sh "docker run -d -p 5000:5000 --name flask-app1 flask-app:lts"
+                    sh "docker run -d -p 5000:5000 --name flask-app flask-app:lts"
                 }
             }
         }
@@ -26,7 +26,8 @@ pipeline{
     post{
         success{
             echo "pipline completed successfully"
-            sh "docker stop flask-app1"
+            sh "docker stop flask-app"
+            sh"docker rm flask-app"
         }
         failure{
             echo "pipline failed"
